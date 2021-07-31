@@ -138,7 +138,7 @@ describe("no_duplicates", () => {
     var testArray1 = [3, 7, 10, 5, 4, 3, 3]
     var testArray2 = [7, 8, 2, 3, 1, 5, 4]
 
-    expect(no_duplicates(testArray1, testArray2 )).toContain([3, 7, 10, 5, 4, 8, 2, 1])
+    expect(no_duplicates(testArray1, testArray2 )).toEqual([3, 7, 10, 5, 4, 8, 2, 1])
   })
 })
 
@@ -175,16 +175,17 @@ var testArray2 = [7, 8, 2, 3, 1, 5, 4]
 //
 // console.log(no_duplicates(testArray1, testArray2))
 
-// Well this isn't working but I did find a solution that was on my thought process but makes a little more sense so I am going to try it.
+// Well this isn't working but I did find a solution that was on my thought process but makes a little more sense so I am going to try it. I also learned a little more about the different loops which was fun. I didn't understand the syntax of the for of loop originally but after some research I learned how handy this loop as well as the while and for in loops. This is basically stating if the value found in the all_nums array is not in the no_dups array then push it into the no_dups array.
+// I also realized after finding the for loop that my need to sort the all_nums array was unncessary. 
 
 const no_duplicates = (array1, array2) => {
   no_dups = []
   all_nums = array1.concat(array2)
-  all_nums = all_nums.sort((a,b)=>a-b)
-  for(let i=0; i<all_nums.length; i++){
-    if(no_dups.indexOf() === -1){
-      no_dups.push()
+  for(var value of all_nums){
+    if(no_dups.indexOf(value) === -1){
+      no_dups.push(value)
+    }
   }
+  return no_dups
 }
-
 console.log(no_duplicates(testArray1, testArray2))
