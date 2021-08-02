@@ -82,3 +82,31 @@ p trek_bike.get_info
 
 # Expected output example: my_bike.pedal_faster 10 => 10
 # Expected output example: my_bike.brake 15 => 0
+
+class Bike
+  def initialize model
+    @model = model
+    @wheels = 2
+    @current_speed = 0
+  end
+  def get_info
+    "The #{@model} bike has #{@wheels} wheels and is going #{@current_speed} mph."
+  end
+  def pedal_faster
+    @current_speed += 10
+  end
+  def brake
+    if @current_speed >= 15
+       @current_speed -= 15
+    elsif @current_speed < 15
+          @current_speed = 0
+     end
+  end
+end
+
+trek_bike = Bike.new "Trek"
+p trek_bike.pedal_faster
+p trek_bike.pedal_faster
+p trek_bike.pedal_faster
+p trek_bike.brake
+p trek_bike.brake
